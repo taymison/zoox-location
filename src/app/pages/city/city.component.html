@@ -1,0 +1,33 @@
+<app-link
+	route="../../state/{{ city?.stateId }}" 
+	text="← Voltar"
+></app-link>
+
+<section class="state">
+	<div class="state__card">
+		<h1 class="state__card__title">{{ title }}</h1>
+
+		<div class="state__card__form" [formGroup]="cityForm">
+			<div class="state__card__form__group">
+				<label class="state__card__form__group__label" for="name">Nome: </label>
+				<input class="state__card__form__group__input" id="name" placeholder="Rio de Janeiro" type="text" formControlName="name">
+			</div>
+			<div class="state__card__form__group">
+				<label class="state__card__form__group__label" for="stateId">Estado: </label>
+				<select class="state__card__form__group__input" id="stateId" formControlName="stateId">
+					<option 
+						class="state__card__form__group__input" 
+						*ngFor="let state of states" 
+						value="{{ state.id }}">{{ state.name }} ({{ state.initials }})</option>
+				</select>
+			</div>
+			<button
+				(click)="submit()"
+				class="state__card__form__button"
+				[ngClass]="{ 'state__card__form__button--disabled': cityForm.status === 'INVALID' }"
+			>Atualizar</button>
+		</div>
+
+		<button (click)="confirmDelete()" class="state__card__delete">Excluir</button>
+	</div>
+</section>

@@ -1,14 +1,14 @@
 @import '../../../styles.scss';
 
 .wrapper {
-	padding: 1rem;
+	padding: .5rem;
 
 	@media (min-width: $tablet) {
-		padding: 1rem 3rem;
+		padding: .5rem 3rem;
 	}
 
 	@media (min-width: $desktop) {
-		padding: 1rem 6rem;
+		padding: .5rem 6rem;
 	}
 }
 

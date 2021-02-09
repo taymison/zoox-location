@@ -8,7 +8,6 @@ import { StateService } from "src/app/services/state.service";
 	selector: 'app-state',
 	templateUrl: './state.component.html',
 	styleUrls: [
-		'../dashboard/dashboard.component.scss',
 		'../../styles/state.scss',
 		'./state.component.scss'
 	]
@@ -47,7 +46,7 @@ export class StateComponent implements OnInit {
 	}
 
 	public confirmDelete(): void {
-		const confirmation: boolean = confirm('O estado e seus municípios serão excluídos. Você tem certeza?');
+		const confirmation: boolean = confirm('O estado e suas cidades serão excluídas. Você tem certeza?');
 
 		if (confirmation) {
 			this.stateService.deleteState(this.stateId).subscribe(
@@ -62,6 +61,7 @@ export class StateComponent implements OnInit {
 				state => {
 					this.state.name = state.name;
 					this.state.initials = state.initials;
+					alert('Estado atualizado com sucesso!');
 				}
 			);
 		}

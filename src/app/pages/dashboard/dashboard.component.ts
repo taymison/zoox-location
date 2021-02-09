@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
         () => {
           this.getStates();
           this.stateForm.setValue({ name: null, initials: null });
+          alert('Estado atualizado com sucesso!');
         }
       )
     }
