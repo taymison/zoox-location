@@ -1,0 +1,28 @@
+<section class="new_state">
+	<div class="new_state__card">
+		<h1 class="new_state__card__title">Cadastrar novo estado</h1>
+		
+		<div class="new_state__card__form" [formGroup]="stateForm">
+			<div class="new_state__card__form__group">
+				<label class="new_state__card__form__group__label" for="name">Nome: </label>
+				<input class="new_state__card__form__group__input" id="name" placeholder="Rio de Janeiro" type="text" formControlName="name">
+			</div>
+			<div class="new_state__card__form__group">
+				<label class="new_state__card__form__group__label" for="initials">Sigla: </label>
+				<input class="new_state__card__form__group__input" id="initials" placeholder="RJ" type="text" formControlName="initials">
+			</div>
+			<button
+				(click)="submit()"
+				class="new_state__card__form__button"
+				[ngClass]="{ 'new_state__card__form__button--disabled': stateForm.status === 'INVALID' }"
+			>Cadastrar</button>
+		</div>
+	</div>
+</section>
+
+<section class="states" *ngIf="states?.length">
+	<div *ngFor="let state of states" class="states__state">
+		<h1 class="states__state__initials">{{ state.initials }}</h1>
+		<p class="states__state__name">{{ state.name }}</p>
+	</div>
+</section>

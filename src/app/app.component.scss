@@ -1,0 +1,46 @@
+@import '../styles.scss';
+
+.wrapper {
+	min-height: 100vh;
+  min-width: 100vw;
+	max-width: 100%;
+}
+
+.header {
+	background-color: $main-bg-color;
+	padding: 1rem;
+
+	@media (min-width: $tablet) {
+		padding: 1rem 3rem;
+	}
+
+	@media (min-width: $desktop) {
+		padding: 1.5rem 6rem;
+	}
+
+	&__title {
+		color: $white-text;
+		font-family: $main-font;
+		font-size: 2rem;
+		font-weight: 300;
+		text-align: center;
+
+		@media (min-width: $tablet) {
+			font-size: 3rem;
+			text-align: left;
+		}
+	}
+
+	.container {
+		background-color: $gray-bg-color;
+		padding: 0 1rem;
+
+		@media (min-width: $tablet) {
+			padding: 0 3rem;
+		}
+
+		@media (min-width: $desktop) {
+			padding: 0 6rem;
+		}
+	}
+}
