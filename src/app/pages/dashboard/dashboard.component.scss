@@ -71,6 +71,7 @@
 		&__state {
 			background-color: $main-bg-color;
 			border-radius: 5px;
+			box-shadow: 0 2px 5px 0 rgb(160, 160, 160);
 			color: $white-text;
 			cursor: pointer;
 			display: flex;
