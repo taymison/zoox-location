@@ -20,6 +20,7 @@
 }
 
 .states {
+	background-color: $white-bg-color;
 	padding: 3rem 1rem;
 
 	@media (min-width: $tablet) {
@@ -46,7 +47,6 @@
 	}
 
 	&__list {
-		background-color: $white-bg-color;
 		display: grid;
   	gap: 1em;
 		grid-template-columns: repeat(2, 1fr);
