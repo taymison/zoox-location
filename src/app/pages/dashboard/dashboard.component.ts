@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit {
 			this.cityService.createCity(this.cityForm.value).subscribe(
 				() => {
           this.cityForm.setValue({ name: null, stateId: this.states[0].id })
-					alert('Cidade criado com sucesso!');
+					alert('Cidade criada com sucesso!');
 				}
 			);
 		}
