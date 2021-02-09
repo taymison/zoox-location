@@ -1,7 +1,9 @@
+<app-link text="← Voltar"></app-link>
+
 <section class="state">
 	<div class="state__card">
-		<h1 class="state__card__title">Cadastrar novo estado</h1>
-		
+		<h1 class="state__card__title">{{ title }}</h1>
+
 		<div class="state__card__form" [formGroup]="stateForm">
 			<div class="state__card__form__group">
 				<label class="state__card__form__group__label" for="name">Nome: </label>
@@ -15,19 +17,26 @@
 				(click)="submit()"
 				class="state__card__form__button"
 				[ngClass]="{ 'state__card__form__button--disabled': stateForm.status === 'INVALID' }"
-			>Cadastrar</button>
+			>Atualizar</button>
 		</div>
+
+		<button (click)="confirmDelete()" class="state__card__delete">Excluir</button>
 	</div>
 </section>
 
-<section class="states" *ngIf="states?.length">
-	<div
-		*ngFor="let state of states" 
-		class="states__state" 
-		[routerLink]="['/state', state.id]"
-		title="Editar {{ state.name }} ({{ state.initials }})"
-	>
-		<h1 class="states__state__initials">{{ state.initials }}</h1>
-		<p class="states__state__name">{{ state.name }}</p>
-	</div>
+<section class="cities" *ngIf="state?.cities?.length">
+	<h1 class="cities__title">
+		Cidades cadastradas neste estado:
+	</h1>
+	<ul class="cities__list">
+		<li class="cities__list__item" *ngFor="let city of state.cities">
+			<a 
+				routerLink="../../city/{{ city.id }}"
+				class="cities__list__item__link"
+				title="Editar {{ city.name }}"
+			>
+				{{ city.name }}
+			</a>
+		</li>
+	</ul>
 </section>

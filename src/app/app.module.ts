@@ -5,12 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LinkComponent } from './components/link/link.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { StateComponent } from './pages/state/state.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    StateComponent,
+    LinkComponent
   ],
   imports: [
     BrowserModule,

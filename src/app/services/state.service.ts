@@ -16,11 +16,23 @@ export class StateService {
     private appService: AppService
   ) { }
 
+  public createState(state: State): Observable<State> {
+    return this.http.post<State>(`${environment.zooxLocationAPI.host}/state`, state, this.header);
+  }
+
+  public deleteState(stateId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.zooxLocationAPI.host}/state/${stateId}`, this.header);
+  }
+
   public getStates(): Observable<State[]> {
     return this.http.get<State[]>(`${environment.zooxLocationAPI.host}/state`, this.header);
   }
 
-  public createState(state: State): Observable<State> {
-    return this.http.post<State>(`${environment.zooxLocationAPI.host}/state`, state, this.header);
+  public getState(stateId: string): Observable<State> {
+    return this.http.get<State>(`${environment.zooxLocationAPI.host}/state/${stateId}?withCities=true`, this.header);
+  }
+
+  public updateState(stateId: string, state: State): Observable<State> {
+    return this.http.put<State>(`${environment.zooxLocationAPI.host}/state/${stateId}`, state, this.header)
   }
 }

@@ -6,7 +6,10 @@ import { StateService } from '../../services/state.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: [
+    './dashboard.component.scss',
+    '../../styles/state.scss'
+  ]
 })
 export class DashboardComponent implements OnInit {
   public states: State[];
@@ -32,7 +35,7 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  public submit() {
+  public submit(): void {
     if (this.stateForm.status === 'VALID') {
       this.stateService.createState(this.stateForm.value).subscribe(
         () => {

@@ -1,0 +1,73 @@
+@import '../../styles.scss';
+
+.state {
+	background-color: $gray-bg-color;
+	padding: 3rem 1rem;
+
+	@media (min-width: $tablet) {
+		padding: 3rem;
+	}
+
+	@media (min-width: $desktop) {
+		padding: 3rem 6rem;
+	}
+
+	&__card {
+		background-color: $white-bg-color;
+		border-radius: 5px;
+		padding: 2rem;
+
+		&__title {
+			font-family: $main-font;
+			font-size: 1.5rem;
+			font-weight: 300;
+			margin-bottom: 2rem;
+		}
+
+		&__form {
+			&__group {
+				display: block;
+				margin-bottom: 2rem;
+
+				&__label {
+					display: block;
+					font-family: $main-font;
+					font-size: 1rem;
+					margin-bottom: .5rem;
+				}
+
+				&__input {
+					font-family: $main-font;
+					font-size: 1rem;
+					padding: .5rem 1rem;
+				}
+			}
+
+			&__button {
+				background-color: $main-bg-color;
+				border: none;
+				border-radius: 5px;
+				color: $white-text;
+				font-family: $main-font;
+				font-size: 1rem;
+				padding: .75rem 1rem;
+				width: 100%;
+
+				&--disabled {
+					cursor: not-allowed;
+					opacity: .5;
+				}
+			}
+		}
+
+		&__delete {
+			background: white;
+			border: 1px solid #000;
+			border-radius: 5px;
+			font-size: 1rem;
+			margin-top: 1rem;
+			padding: .75rem 1rem;
+			width: 100%;
+		}
+	}
+}
