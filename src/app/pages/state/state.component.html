@@ -14,7 +14,7 @@
 				<input class="state__card__form__group__input" id="initials" placeholder="RJ" type="text" formControlName="initials">
 			</div>
 			<button
-				(click)="submit()"
+				(click)="submitState()"
 				class="state__card__form__button"
 				[ngClass]="{ 'state__card__form__button--disabled': stateForm.status === 'INVALID' }"
 			>Atualizar</button>
@@ -22,6 +22,13 @@
 
 		<button (click)="confirmDelete()" class="state__card__delete">Excluir</button>
 	</div>
+</section>
+
+<section class="cities" *ngIf="state?.cities?.length === 0">
+	<h1 class="cities__title">
+		Nenhuma cidade cadastrada neste estado
+	</h1>
+	<p class="cities__text cities__text--no_margin">Aproveite para cadastradar uma nova cidade abaixo.</p>
 </section>
 
 <section class="cities" *ngIf="state?.cities?.length">
@@ -40,4 +47,22 @@
 			</a>
 		</li>
 	</ul>
+</section>
+
+<section class="state">
+	<div class="state__card">
+		<h1 class="state__card__title">Cadastrar nova cidade</h1>
+			
+		<div class="state__card__form" [formGroup]="cityForm">
+			<div class="state__card__form__group">
+				<label class="state__card__form__group__label" for="name">Nome: </label>
+				<input class="state__card__form__group__input" id="name" placeholder="Rio de Janeiro" type="text" formControlName="name">
+			</div>
+			<button
+				(click)="submitCity()"
+				class="state__card__form__button"
+				[ngClass]="{ 'state__card__form__button--disabled': cityForm.status === 'INVALID' }"
+			>Cadastrar</button>
+		</div>
+	</div>
 </section>
