@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { City } from "src/app/interfaces/city";
 import { State } from "src/app/interfaces/state";
 import { StateService } from "src/app/services/state.service";
 
@@ -33,6 +34,7 @@ export class StateComponent implements OnInit {
 		this.stateService.getState(this.stateId).subscribe(
 			state => {
 				this.state = state;
+				this.state.cities = this.sortCities(this.state.cities);
 				this.stateForm.setValue({ 
 					name: this.state.name, 
 					initials: this.state.initials 
@@ -43,6 +45,14 @@ export class StateComponent implements OnInit {
 
 	get title(): string {
 		return this.state ? `Editar ${this.state?.name} (${this.state.initials})` : 'Editar';
+	}
+
+	private sortCities(cities: City[]): City[] {
+		return cities.sort((cityA, cityB) => {
+			if (cityA.name < cityB.name) return -1;
+			if (cityA.name > cityB.name) return 1;
+			return 0;
+		});
 	}
 
 	public confirmDelete(): void {
