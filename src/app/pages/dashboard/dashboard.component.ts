@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CityService } from 'src/app/services/city.service';
 import { State } from '../../interfaces/state';
 import { StateService } from '../../services/state.service';
 
@@ -7,8 +8,8 @@ import { StateService } from '../../services/state.service';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: [
+    '../../styles/state.scss',
     './dashboard.component.scss',
-    '../../styles/state.scss'
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -17,9 +18,14 @@ export class DashboardComponent implements OnInit {
     name: [null, [Validators.required, Validators.maxLength(128), Validators.pattern(/^\S{3}.*$/)]],
     initials: [null, [Validators.required, Validators.maxLength(2), Validators.pattern(/^[A-Z]{2}$/)]]
   });
+  public cityForm: FormGroup = this.formBuilder.group({
+		name: [null, [Validators.required, Validators.maxLength(128), Validators.pattern(/^\S{3}.*$/)]],
+		stateId: [null, Validators.required]
+	});
 
   constructor(
     private stateService: StateService,
+    private cityService: CityService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -35,15 +41,26 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  public submit(): void {
+  public submitState(): void {
     if (this.stateForm.status === 'VALID') {
       this.stateService.createState(this.stateForm.value).subscribe(
         () => {
           this.getStates();
           this.stateForm.setValue({ name: null, initials: null });
-          alert('Estado atualizado com sucesso!');
+          alert('Estado criado com sucesso!');
         }
       )
     }
   }
+
+  public submitCity(): void {
+		if (this.cityForm.status === 'VALID') {
+			this.cityService.createCity(this.cityForm.value).subscribe(
+				() => {
+          this.cityForm.setValue({ name: null, stateId: this.states[0].id })
+					alert('Cidade criado com sucesso!');
+				}
+			);
+		}
+	}
 }

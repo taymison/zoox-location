@@ -1,52 +1,96 @@
 @import '../../../styles.scss';
 
+.state {
+	display: flex;
+	overflow-x: scroll;
+
+	@media (min-width: $desktop) {
+		justify-content: space-between;
+	}	
+
+	&__card {
+		margin-right: 2em;
+		min-width: 70%;
+
+		@media (min-width: $desktop) {
+			margin-right: unset;
+			min-width: 40%;
+		}
+	}
+}
+
 .states {
-	background-color: $white-bg-color;
-	display: grid;
-  gap: 1em;
-	grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-	grid-template-areas:
-	". .";
 	padding: 3rem 1rem;
 
 	@media (min-width: $tablet) {
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-areas:
-		". . . .";
 		padding: 3rem;
 	}
 
 	@media (min-width: $desktop) {
-		gap: 2em;
-		grid-template-columns: repeat(6, 1fr);
-		grid-template-areas:
-		". . . . . .";
 		padding: 3rem 6rem;
 	}
 
-	&__state {
-		background-color: $main-bg-color;
-		border-radius: 5px;
-		color: $white-text;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-height: 8rem;
-		padding: 1rem;
+	&__title {
+		font-family: $main-font;
+		font-size: 1.5rem;
+		font-weight: 300;
+		margin-bottom: .5rem;
+	}
+	
+	&__text {
+		font-family: $main-font;
+		font-size: .85rem;
+		font-weight: 300;
+		line-height: 1rem;
+		margin-bottom: 2rem;
+	}
 
-		&__initials {
-			font-family: $main-font;
-			font-size: 4rem;
-			font-weight: 400;
-			letter-spacing: .25rem;
+	&__list {
+		background-color: $white-bg-color;
+		display: grid;
+  	gap: 1em;
+		grid-template-columns: repeat(2, 1fr);
+  	grid-template-rows: 1fr;
+		grid-template-areas:
+		". .";
+		
+
+		@media (min-width: $tablet) {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas:
+			". . . .";
 		}
 
-		&__name {
-			font-family: $main-font;
-			font-size: 1rem;
-			font-weight: 300;
+		@media (min-width: $desktop) {
+			gap: 2em;
+			grid-template-columns: repeat(6, 1fr);
+			grid-template-areas:
+			". . . . . .";
+		}
+
+		&__state {
+			background-color: $main-bg-color;
+			border-radius: 5px;
+			color: $white-text;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			min-height: 8rem;
+			padding: 1rem;
+
+			&__initials {
+				font-family: $main-font;
+				font-size: 4rem;
+				font-weight: 400;
+				letter-spacing: .25rem;
+			}
+
+			&__name {
+				font-family: $main-font;
+				font-size: 1rem;
+				font-weight: 300;
+			}
 		}
 	}
 }

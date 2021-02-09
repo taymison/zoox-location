@@ -1,7 +1,7 @@
 <section class="state">
 	<div class="state__card">
 		<h1 class="state__card__title">Cadastrar novo estado</h1>
-		
+
 		<div class="state__card__form" [formGroup]="stateForm">
 			<div class="state__card__form__group">
 				<label class="state__card__form__group__label" for="name">Nome: </label>
@@ -12,22 +12,52 @@
 				<input class="state__card__form__group__input" id="initials" placeholder="RJ" type="text" formControlName="initials">
 			</div>
 			<button
-				(click)="submit()"
+				(click)="submitState()"
 				class="state__card__form__button"
 				[ngClass]="{ 'state__card__form__button--disabled': stateForm.status === 'INVALID' }"
 			>Cadastrar</button>
 		</div>
 	</div>
+
+	<div class="state__card">
+		<h1 class="state__card__title">Cadastrar nova cidade</h1>
+			
+		<div class="state__card__form" [formGroup]="cityForm">
+			<div class="state__card__form__group">
+				<label class="state__card__form__group__label" for="name">Nome: </label>
+				<input class="state__card__form__group__input" id="name" placeholder="Rio de Janeiro" type="text" formControlName="name">
+			</div>
+			<div class="state__card__form__group">
+				<label class="state__card__form__group__label" for="stateId">Estado: </label>
+				<select class="state__card__form__group__input" id="stateId" formControlName="stateId">
+					<option 
+						class="state__card__form__group__input" 
+						*ngFor="let state of states" 
+						value="{{ state.id }}">{{ state.name }} ({{ state.initials }})</option>
+				</select>
+			</div>
+			<button
+				(click)="submitCity()"
+				class="state__card__form__button"
+				[ngClass]="{ 'state__card__form__button--disabled': cityForm.status === 'INVALID' }"
+			>Cadastrar</button>
+		</div>
+	</div>
 </section>
 
+
 <section class="states" *ngIf="states?.length">
-	<div
-		*ngFor="let state of states" 
-		class="states__state" 
-		[routerLink]="['/state', state.id]"
-		title="Editar {{ state.name }} ({{ state.initials }})"
-	>
-		<h1 class="states__state__initials">{{ state.initials }}</h1>
-		<p class="states__state__name">{{ state.name }}</p>
+	<h1 class="states__title">Estados cadastrados</h1>
+	<p class="states__text">Clique em um card para alterar o estado e suas cidades.</p>
+	<div class="states__list">
+		<div
+			*ngFor="let state of states" 
+			class="states__list__state" 
+			[routerLink]="['/state', state.id]"
+			title="Editar {{ state.name }} ({{ state.initials }})"
+		>
+			<h1 class="states__list__state__initials">{{ state.initials }}</h1>
+			<p class="states__list__state__name">{{ state.name }}</p>
+		</div>
 	</div>
 </section>

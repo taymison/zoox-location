@@ -26,8 +26,9 @@
 
 <section class="cities" *ngIf="state?.cities?.length">
 	<h1 class="cities__title">
-		Cidades cadastradas neste estado:
+		Cidades cadastradas neste estado
 	</h1>
+	<p class="cities__text">Clique em uma cidade da lista para editá-la.</p>
 	<ul class="cities__list">
 		<li class="cities__list__item" *ngFor="let city of state.cities">
 			<a 
