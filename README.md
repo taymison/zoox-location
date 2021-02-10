@@ -1,27 +1,32 @@
-# ZooxLocation
+<h1 align="center">
+  Zoox Location
+</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+<p align="center">Unofficial Zoox Web application for registering and editing states and cities</p>
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+WebApp developed in Angular 11 to consume the Zoox Location API.
 
-## Code scaffolding
+The application was developed with the concept of mobile-first but is adaptable for larger screen sizes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+It has a color palette inspired by the official Zoox palette and a clean design that facilitates the user experience by taking advantage of white spaces.
 
-## Build
+On the first screen it is possible to register states and cities in any state. You can also see a list of all states.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+By clicking on one of the states, you can edit it, delete it, check its registered cities and register new cities for it.
 
-## Running unit tests
+By clicking on a city in the list, you can edit or remove it.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Requirements
+* Node >= 10.13.0
 
-## Running end-to-end tests
+## Installation
+```bash
+$ npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Running the app
+```bash
+$ npm run start
+```
