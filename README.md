@@ -18,6 +18,13 @@ By clicking on one of the states, you can edit it, delete it, check its register
 
 By clicking on a city in the list, you can edit or remove it.
 
+## Screenshots
+![Inserting a state](https://raw.githubusercontent.com/taymison/zoox-location/main/docs/prints/insert-1.png)
+![Inserting a city](https://raw.githubusercontent.com/taymison/zoox-location/main/docs/prints/insert-2.png)
+![List of states](https://raw.githubusercontent.com/taymison/zoox-location/main/docs/prints/states.png)
+![Editing a state](https://raw.githubusercontent.com/taymison/zoox-location/main/docs/prints/state.png)
+![List of cities](https://raw.githubusercontent.com/taymison/zoox-location/main/docs/prints/cities.png)
+
 ## Requirements
 * Node >= 10.13.0
 
